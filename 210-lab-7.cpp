@@ -5,14 +5,14 @@
 #include <string>
 using namespace std;
 
-// Display function
+// Function to display array
 void displayArray(string* arr, int size) {
     for (int i = 0; i < size; i++)
         cout << *(arr + i) << " ";
     cout << endl;
 }
 
-// Function to reverse a dynamic array in place
+// Function to reverse a dynamic array
 string* reverseArray(string* arr, int size) {
     for (int i = 0; i < size / 2; i++) {
         string temp = *(arr + i);
@@ -37,8 +37,14 @@ int main() {
     cout << "Original array: ";
     displayArray(names, size);
 
-    // ReverseArray function added but not yet called
+    // Reverse array
+    names = reverseArray(names, size);
 
+    // Display reversed array
+    cout << "Reversed array: ";
+    displayArray(names, size);
+
+    // Free memory
     delete[] names;
     return 0;
 }
