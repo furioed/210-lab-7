@@ -5,26 +5,28 @@
 #include <string>
 using namespace std;
 
+// Function to display elements of a dynamic array
+void displayArray(string* arr, int size) {
+    for (int i = 0; i < size; i++)
+        cout << *(arr + i) << " "; // pointer notation
+    cout << endl;
+}
+
 int main() {
     int size = 5;
-
-    // Dynamically allocate array of strings
     string* names = new string[size];
 
-    // Populate array with 5 names
+    // Populate array
     *(names + 0) = "Janet";
     *(names + 1) = "Jeffe";
     *(names + 2) = "Jin";
     *(names + 3) = "Joe";
     *(names + 4) = "Junio";
 
-    // Display original array using pointer notation
+    // Display using function
     cout << "Original array: ";
-    for (int i = 0; i < size; i++)
-        cout << *(names + i) << " ";
-    cout << endl;
+    displayArray(names, size);
 
-    // Free dynamically allocated memory
     delete[] names;
     return 0;
 }
