@@ -5,11 +5,21 @@
 #include <string>
 using namespace std;
 
-// Function to display elements of a dynamic array
+// Display function
 void displayArray(string* arr, int size) {
     for (int i = 0; i < size; i++)
-        cout << *(arr + i) << " "; // pointer notation
+        cout << *(arr + i) << " ";
     cout << endl;
+}
+
+// Function to reverse a dynamic array in place
+string* reverseArray(string* arr, int size) {
+    for (int i = 0; i < size / 2; i++) {
+        string temp = *(arr + i);
+        *(arr + i) = *(arr + (size - 1 - i));
+        *(arr + (size - 1 - i)) = temp;
+    }
+    return arr;
 }
 
 int main() {
@@ -23,9 +33,11 @@ int main() {
     *(names + 3) = "Joe";
     *(names + 4) = "Junio";
 
-    // Display using function
+    // Display original array
     cout << "Original array: ";
     displayArray(names, size);
+
+    // ReverseArray function added but not yet called
 
     delete[] names;
     return 0;
